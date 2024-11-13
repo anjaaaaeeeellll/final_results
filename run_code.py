@@ -146,19 +146,6 @@ emb_model = OpenAIEmbeddings(model="text-embedding-3-large", api_key=api_key)
 
 vectordb = Chroma(persist_directory="./chroma4", embedding_function=emb_model)
 
-# QA 체인 구축
-qa_chain = RetrievalQA.from_chain_type(
-    llm=ChatOpenAI(
-        model_name="gpt-4o-mini",
-        temperature=0,
-        streaming=True,
-        callbacks=[StreamCallback()],
-        api_key=api_key
-    
-    ),
-    chain_type="stuff",
-    retriever=vectordb.as_retriever(),
-)
 
 
  # 기능 구현 공간
@@ -195,7 +182,7 @@ with col2:
             temperature=0,
             streaming=True,
             callbacks=[StreamCallback()],
-            api_key="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"
+            api_key=api_key
         
         ),
         chain_type="stuff",
