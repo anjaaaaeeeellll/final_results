@@ -147,7 +147,6 @@ emb_model = OpenAIEmbeddings(model="text-embedding-3-large", api_key=api_key)
 vectordb = Chroma(persist_directory="./chroma4", embedding_function=emb_model)
 
 
-
  # 기능 구현 공간
 col1, col2 = st.columns(2)
 with col1:
